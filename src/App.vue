@@ -1,26 +1,13 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
-interface User {
-  name: string
-  age: number
-}
-
-const user = reactive<User>({
-  name: 'abko',
-  age: 1,
-})
-
-function celebrateBirth() {
-  user.age++
-}
+const message = ref<string>('')
 </script>
 
 <template>
   <h1>Vue reactive 실습</h1>
-  <p>이름 : {{ user.name }}</p>
-  <p>나이 : {{ user.age }}</p>
-  <button @click="celebrateBirth">나이 추가요~</button>
+  <input v-model="message" placeholder="값 입력!" />
+  <p>당신이 입력한 메시지 : {{ message }}</p>
 </template>
 
 <style scoped></style>
